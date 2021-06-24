@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class InteractableObject : MonoBehaviour
 {
@@ -9,11 +10,14 @@ public class InteractableObject : MonoBehaviour
     public Text Text;
     public string TextString;
 
+    public UnityEvent clicked;
+
 
     private void OnMouseDown()
     {
         interactableObj.SetActive(false);
         Text.text = TextString;
+        clicked.Invoke();
     }
 
 }
